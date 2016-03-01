@@ -19,7 +19,7 @@
                   )})
   (GET "/:slug" [slug]
        {:status 301
-        :headers {"Location" (data/request-redirect! [slug])}})
+        :headers {"Location" (data/request-redirect! slug)}})
   (POST "/shorten/:slug" [slug target]
         (if (data/store-slug! slug target)
           {:status 200}
